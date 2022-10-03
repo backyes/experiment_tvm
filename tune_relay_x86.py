@@ -138,7 +138,7 @@ tuning_option = {
     "measure_option": autotvm.measure_option(
         builder=autotvm.LocalBuilder(),
         runner=autotvm.LocalRunner(
-            number=1, repeat=10, min_repeat_ms=0, enable_cpu_cache_flush=True
+            number=1, repeat=3, min_repeat_ms=0, enable_cpu_cache_flush=True
         ),
     ),
 }
