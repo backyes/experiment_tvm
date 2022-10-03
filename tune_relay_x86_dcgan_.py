@@ -66,6 +66,10 @@ def get_network(name, batch_size):
         )
     elif name == "mobilenet":
         mod, params = relay.testing.mobilenet.get_workload(batch_size=batch_size, dtype=dtype)
+    elif name == "dcgan":
+        mod, params = relay.testing.dcgan.get_workload(batch_size=batch_size, dtype=dtype)
+    elif name == "mlp":
+        mod, params = relay.testing.mlp.get_workload(batch_size=batch_size, dtype=dtype)
     elif name == "squeezenet_v1.1":
         mod, params = relay.testing.squeezenet.get_workload(
             batch_size=batch_size, version="1.1", dtype=dtype
@@ -99,7 +103,7 @@ target = "llvm"
 
 batch_size = 1
 dtype = "float32"
-model_name = "inception_v3"
+model_name = "mlp"
 log_file = "%s.log.debug" % model_name
 graph_opt_sch_file = "%s_graph_opt.log.debug" % model_name
 
