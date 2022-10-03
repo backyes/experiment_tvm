@@ -18,9 +18,9 @@ data = te.placeholder((N, CI, H, W), name='data')
 kernel = te.placeholder((CO, CI, KH, KW), name='kernel')
 conv = topi.nn.conv2d_nchw(data, kernel, strides, padding, dilation=1, out_dtype='float32')
 #cfg = autotvm.get_config()
-task = autotvm.task.create("conv2d_nchw",
+task = autotvm.task.create("conv2d_nchw.cuda",
                            args=(data, kernel, strides, padding, 1, 'float32'),
-                           target='llvm')
+                           target='cuda')
 print(task.config_space)
 
 measure_option = autotvm.measure_option(
