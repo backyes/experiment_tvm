@@ -100,8 +100,8 @@ target = "llvm"
 batch_size = 1
 dtype = "float32"
 model_name = "resnet-18"
-log_file = "%s.log" % model_name
-graph_opt_sch_file = "%s_graph_opt.log" % model_name
+log_file = "%s.log.debug" % model_name
+graph_opt_sch_file = "%s_graph_opt.log.debug" % model_name
 
 # Set the input name of the graph
 # For ONNX models, it is typically "0".
@@ -109,7 +109,7 @@ input_name = "data"
 
 # Set number of threads used for tuning based on the number of
 # physical CPU cores on your machine.
-num_threads = 40
+num_threads = 12
 os.environ["TVM_NUM_THREADS"] = str(num_threads)
 
 
@@ -150,6 +150,7 @@ def tune_kernels(
 ):
 
     for i, task in enumerate(tasks):
+        print(i, task)
         prefix = "[Task %2d/%2d] " % (i + 1, len(tasks))
 
         # create tuner
