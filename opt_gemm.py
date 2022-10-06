@@ -136,7 +136,7 @@ print(tvm.lower(s, [A, B, C], simple_mode=True))
 # fill 32 * 32 * sizeof(float) which is 4KB in the cache whose total size is 32KB (L1 data cache)
 
 bn = 32
-kfactor = 4
+kfactor = 8
 s = te.create_schedule(C.op)
 
 # Blocking by loop tiling
