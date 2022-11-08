@@ -1,0 +1,616 @@
+torch.Size([4, 3, 30])
+torch.Size([4, 3, 512])
+graph(%self.1 : __torch__.Model,
+      %seq : Long(4, 10, strides=[10, 1], requires_grad=0, device=cpu)):
+  %fc : __torch__.torch.nn.modules.linear.___torch_mangle_12.Linear = prim::GetAttr[name="fc"](%self.1)
+  %mogrifier_lstm_layer2 : __torch__.mog_lstm.___torch_mangle_11.MogrifierLSTMCell = prim::GetAttr[name="mogrifier_lstm_layer2"](%self.1)
+  %mogrifier_lstm_layer1 : __torch__.mog_lstm.MogrifierLSTMCell = prim::GetAttr[name="mogrifier_lstm_layer1"](%self.1)
+  %drop : __torch__.torch.nn.modules.dropout.Dropout = prim::GetAttr[name="drop"](%self.1)
+  %embedding : __torch__.torch.nn.modules.sparse.Embedding = prim::GetAttr[name="embedding"](%self.1)
+  %embedding.1 : __torch__.torch.nn.modules.sparse.Embedding = prim::GetAttr[name="embedding"](%self.1)
+  %weight.3 : Tensor = prim::GetAttr[name="weight"](%embedding.1)
+  %786 : Tensor = prim::CallMethod[name="forward"](%embedding, %seq)
+  %100 : int = prim::Constant[value=0]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:22:0
+  %101 : int = aten::size(%seq, %100) # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:22:0
+  %batch_size : Long(device=cpu) = prim::NumToTensor(%101)
+  %130 : int = aten::Int(%batch_size)
+  %122 : int = aten::Int(%batch_size)
+  %114 : int = aten::Int(%batch_size)
+  %106 : int = aten::Int(%batch_size)
+  %107 : int = prim::Constant[value=512]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:23:0
+  %108 : int[] = prim::ListConstruct(%106, %107)
+  %109 : int = prim::Constant[value=6]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:23:0
+  %110 : NoneType = prim::Constant()
+  %111 : Device = prim::Constant[value="cpu"]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:23:0
+  %112 : bool = prim::Constant[value=0]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:23:0
+  %input.3 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::zeros(%108, %109, %110, %111, %112) # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:23:0
+  %115 : int = prim::Constant[value=512]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:23:0
+  %116 : int[] = prim::ListConstruct(%114, %115)
+  %117 : int = prim::Constant[value=6]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:23:0
+  %118 : NoneType = prim::Constant()
+  %119 : Device = prim::Constant[value="cpu"]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:23:0
+  %120 : bool = prim::Constant[value=0]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:23:0
+  %121 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::zeros(%116, %117, %118, %119, %120) # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:23:0
+  %123 : int = prim::Constant[value=512]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:24:0
+  %124 : int[] = prim::ListConstruct(%122, %123)
+  %125 : int = prim::Constant[value=6]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:24:0
+  %126 : NoneType = prim::Constant()
+  %127 : Device = prim::Constant[value="cpu"]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:24:0
+  %128 : bool = prim::Constant[value=0]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:24:0
+  %input.15 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::zeros(%124, %125, %126, %127, %128) # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:24:0
+  %131 : int = prim::Constant[value=512]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:24:0
+  %132 : int[] = prim::ListConstruct(%130, %131)
+  %133 : int = prim::Constant[value=6]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:24:0
+  %134 : NoneType = prim::Constant()
+  %135 : Device = prim::Constant[value="cpu"]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:24:0
+  %136 : bool = prim::Constant[value=0]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:24:0
+  %137 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::zeros(%132, %133, %134, %135, %136) # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:24:0
+  %138 : int = prim::Constant[value=0]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:28:0
+  %139 : int = prim::Constant[value=0]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:28:0
+  %140 : int = prim::Constant[value=9223372036854775807]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:28:0
+  %141 : int = prim::Constant[value=1]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:28:0
+  %142 : Float(4, 10, 512, strides=[5120, 512, 1], requires_grad=0, device=cpu) = aten::slice(%786, %138, %139, %140, %141) # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:28:0
+  %143 : int = prim::Constant[value=1]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:28:0
+  %144 : int = prim::Constant[value=0]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:28:0
+  %input.1 : Float(4, 512, strides=[5120, 1], requires_grad=0, device=cpu) = aten::select(%142, %143, %144) # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:28:0
+  %787 : Tensor = prim::CallMethod[name="forward"](%drop, %input.1)
+  %788 : (Tensor, Tensor) = prim::CallMethod[name="forward"](%mogrifier_lstm_layer1, %input.3, %787, %121)
+  %760 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu), %761 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = prim::TupleUnpack(%788)
+  %789 : (Tensor, Tensor) = prim::CallMethod[name="forward"](%mogrifier_lstm_layer2, %input.15, %760, %137)
+  %768 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu), %769 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = prim::TupleUnpack(%789)
+  %790 : Tensor = prim::CallMethod[name="forward1"](%drop, %768)
+  %791 : Tensor = prim::CallMethod[name="forward"](%fc, %weight.3, %790)
+  %245 : int = prim::Constant[value=1]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:32:0
+  %246 : Float(4, 1, 512, strides=[512, 512, 1], requires_grad=0, device=cpu) = aten::unsqueeze(%790, %245) # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:32:0
+  %247 : int = prim::Constant[value=1]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:33:0
+  %248 : Float(4, 1, 30, strides=[30, 30, 1], requires_grad=0, device=cpu) = aten::unsqueeze(%791, %247) # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:33:0
+  %249 : int = prim::Constant[value=0]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:28:0
+  %250 : int = prim::Constant[value=0]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:28:0
+  %251 : int = prim::Constant[value=9223372036854775807]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:28:0
+  %252 : int = prim::Constant[value=1]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:28:0
+  %253 : Float(4, 10, 512, strides=[5120, 512, 1], requires_grad=0, device=cpu) = aten::slice(%786, %249, %250, %251, %252) # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:28:0
+  %254 : int = prim::Constant[value=1]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:28:0
+  %255 : int = prim::Constant[value=1]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:28:0
+  %input.31 : Float(4, 512, strides=[5120, 1], requires_grad=0, device=cpu) = aten::select(%253, %254, %255) # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:28:0
+  %792 : Tensor = prim::CallMethod[name="forward2"](%drop, %input.31)
+  %793 : (Tensor, Tensor) = prim::CallMethod[name="forward1"](%mogrifier_lstm_layer1, %760, %792, %761)
+  %776 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu), %777 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = prim::TupleUnpack(%793)
+  %794 : (Tensor, Tensor) = prim::CallMethod[name="forward1"](%mogrifier_lstm_layer2, %790, %776, %769)
+  %784 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu), %785 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = prim::TupleUnpack(%794)
+  %795 : Tensor = prim::CallMethod[name="forward3"](%drop, %784)
+  %796 : Tensor = prim::CallMethod[name="forward1"](%fc, %weight.3, %795)
+  %356 : int = prim::Constant[value=1]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:32:0
+  %357 : Float(4, 1, 512, strides=[512, 512, 1], requires_grad=0, device=cpu) = aten::unsqueeze(%795, %356) # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:32:0
+  %358 : int = prim::Constant[value=1]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:33:0
+  %359 : Float(4, 1, 30, strides=[30, 30, 1], requires_grad=0, device=cpu) = aten::unsqueeze(%796, %358) # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:33:0
+  %360 : int = prim::Constant[value=0]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:28:0
+  %361 : int = prim::Constant[value=0]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:28:0
+  %362 : int = prim::Constant[value=9223372036854775807]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:28:0
+  %363 : int = prim::Constant[value=1]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:28:0
+  %364 : Float(4, 10, 512, strides=[5120, 512, 1], requires_grad=0, device=cpu) = aten::slice(%786, %360, %361, %362, %363) # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:28:0
+  %365 : int = prim::Constant[value=1]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:28:0
+  %366 : int = prim::Constant[value=2]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:28:0
+  %input.57 : Float(4, 512, strides=[5120, 1], requires_grad=0, device=cpu) = aten::select(%364, %365, %366) # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:28:0
+  %797 : Tensor = prim::CallMethod[name="forward4"](%drop, %input.57)
+  %798 : Tensor = prim::CallMethod[name="forward2"](%mogrifier_lstm_layer1, %776, %797, %777)
+  %799 : Tensor = prim::CallMethod[name="forward2"](%mogrifier_lstm_layer2, %795, %798, %785)
+  %800 : Tensor = prim::CallMethod[name="forward5"](%drop, %799)
+  %801 : Tensor = prim::CallMethod[name="forward2"](%fc, %weight.3, %800)
+  %467 : int = prim::Constant[value=1]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:32:0
+  %468 : Float(4, 1, 512, strides=[512, 512, 1], requires_grad=0, device=cpu) = aten::unsqueeze(%800, %467) # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:32:0
+  %469 : int = prim::Constant[value=1]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:33:0
+  %470 : Float(4, 1, 30, strides=[30, 30, 1], requires_grad=0, device=cpu) = aten::unsqueeze(%801, %469) # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:33:0
+  %471 : Tensor[] = prim::ListConstruct(%246, %357, %468)
+  %472 : int = prim::Constant[value=1]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:36:0
+  %473 : Float(4, 3, 512, strides=[1536, 512, 1], requires_grad=0, device=cpu) = aten::cat(%471, %472) # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:36:0
+  %474 : Tensor[] = prim::ListConstruct(%248, %359, %470)
+  %475 : int = prim::Constant[value=1]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:37:0
+  %476 : Float(4, 3, 30, strides=[90, 30, 1], requires_grad=0, device=cpu) = aten::cat(%474, %475) # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:37:0
+  %477 : (Float(4, 3, 30, strides=[90, 30, 1], requires_grad=0, device=cpu), Float(4, 3, 512, strides=[1536, 512, 1], requires_grad=0, device=cpu)) = prim::TupleConstruct(%476, %473)
+  return (%477)
+
+graph(%self.1 : __torch__.Model,
+      %seq : Long(4, 10, strides=[10, 1], requires_grad=0, device=cpu)):
+  %fc : __torch__.torch.nn.modules.linear.___torch_mangle_12.Linear = prim::GetAttr[name="fc"](%self.1)
+  %mogrifier_lstm_layer2 : __torch__.mog_lstm.___torch_mangle_11.MogrifierLSTMCell = prim::GetAttr[name="mogrifier_lstm_layer2"](%self.1)
+  %mogrifier_lstm_layer1 : __torch__.mog_lstm.MogrifierLSTMCell = prim::GetAttr[name="mogrifier_lstm_layer1"](%self.1)
+  %drop : __torch__.torch.nn.modules.dropout.Dropout = prim::GetAttr[name="drop"](%self.1)
+  %embedding : __torch__.torch.nn.modules.sparse.Embedding = prim::GetAttr[name="embedding"](%self.1)
+  %embedding.1 : __torch__.torch.nn.modules.sparse.Embedding = prim::GetAttr[name="embedding"](%self.1)
+  %weight.3 : Tensor = prim::GetAttr[name="weight"](%embedding.1)
+  %802 : bool = prim::Constant[value=0](), scope: __module.embedding # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/functional.py:2199:0
+  %803 : int = prim::Constant[value=-1](), scope: __module.embedding # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/functional.py:2199:0
+  %weight.5 : Tensor = prim::GetAttr[name="weight"](%embedding)
+  %embed : Float(4, 10, 512, strides=[5120, 512, 1], requires_grad=0, device=cpu) = aten::embedding(%weight.5, %seq, %803, %802, %802), scope: __module.embedding # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/functional.py:2199:0
+  %100 : int = prim::Constant[value=0]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:22:0
+  %101 : int = aten::size(%seq, %100) # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:22:0
+  %batch_size : Long(device=cpu) = prim::NumToTensor(%101)
+  %130 : int = aten::Int(%batch_size)
+  %122 : int = aten::Int(%batch_size)
+  %114 : int = aten::Int(%batch_size)
+  %106 : int = aten::Int(%batch_size)
+  %107 : int = prim::Constant[value=512]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:23:0
+  %108 : int[] = prim::ListConstruct(%106, %107)
+  %109 : int = prim::Constant[value=6]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:23:0
+  %110 : NoneType = prim::Constant()
+  %111 : Device = prim::Constant[value="cpu"]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:23:0
+  %112 : bool = prim::Constant[value=0]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:23:0
+  %input.3 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::zeros(%108, %109, %110, %111, %112) # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:23:0
+  %115 : int = prim::Constant[value=512]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:23:0
+  %116 : int[] = prim::ListConstruct(%114, %115)
+  %117 : int = prim::Constant[value=6]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:23:0
+  %118 : NoneType = prim::Constant()
+  %119 : Device = prim::Constant[value="cpu"]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:23:0
+  %120 : bool = prim::Constant[value=0]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:23:0
+  %121 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::zeros(%116, %117, %118, %119, %120) # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:23:0
+  %123 : int = prim::Constant[value=512]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:24:0
+  %124 : int[] = prim::ListConstruct(%122, %123)
+  %125 : int = prim::Constant[value=6]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:24:0
+  %126 : NoneType = prim::Constant()
+  %127 : Device = prim::Constant[value="cpu"]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:24:0
+  %128 : bool = prim::Constant[value=0]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:24:0
+  %input.15 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::zeros(%124, %125, %126, %127, %128) # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:24:0
+  %131 : int = prim::Constant[value=512]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:24:0
+  %132 : int[] = prim::ListConstruct(%130, %131)
+  %133 : int = prim::Constant[value=6]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:24:0
+  %134 : NoneType = prim::Constant()
+  %135 : Device = prim::Constant[value="cpu"]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:24:0
+  %136 : bool = prim::Constant[value=0]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:24:0
+  %137 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::zeros(%132, %133, %134, %135, %136) # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:24:0
+  %138 : int = prim::Constant[value=0]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:28:0
+  %139 : int = prim::Constant[value=0]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:28:0
+  %140 : int = prim::Constant[value=9223372036854775807]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:28:0
+  %141 : int = prim::Constant[value=1]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:28:0
+  %142 : Float(4, 10, 512, strides=[5120, 512, 1], requires_grad=0, device=cpu) = aten::slice(%embed, %138, %139, %140, %141) # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:28:0
+  %143 : int = prim::Constant[value=1]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:28:0
+  %144 : int = prim::Constant[value=0]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:28:0
+  %input.1 : Float(4, 512, strides=[5120, 1], requires_grad=0, device=cpu) = aten::select(%142, %143, %144) # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:28:0
+  %806 : bool = prim::Constant[value=0](), scope: __module.drop # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/functional.py:1252:0
+  %807 : float = prim::Constant[value=0.5](), scope: __module.drop # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/functional.py:1252:0
+  %x.1 : Float(4, 512, strides=[5120, 1], requires_grad=0, device=cpu) = aten::dropout(%input.1, %807, %806), scope: __module.drop # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/functional.py:1252:0
+  %809 : int = prim::Constant[value=1](), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %810 : int = prim::Constant[value=4](), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %811 : Long(requires_grad=0, device=cpu) = prim::Constant[value={2}](), scope: __module.mogrifier_lstm_layer1 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %lstm.1 : __torch__.torch.nn.modules.rnn.LSTMCell = prim::GetAttr[name="lstm"](%mogrifier_lstm_layer1)
+  %mogrifier_list.9 : __torch__.torch.nn.modules.container.ModuleList = prim::GetAttr[name="mogrifier_list"](%mogrifier_lstm_layer1)
+  %_4.1 : __torch__.torch.nn.modules.linear.___torch_mangle_3.Linear = prim::GetAttr[name="4"](%mogrifier_list.9)
+  %mogrifier_list.7 : __torch__.torch.nn.modules.container.ModuleList = prim::GetAttr[name="mogrifier_list"](%mogrifier_lstm_layer1)
+  %_3.1 : __torch__.torch.nn.modules.linear.___torch_mangle_2.Linear = prim::GetAttr[name="3"](%mogrifier_list.7)
+  %mogrifier_list.5 : __torch__.torch.nn.modules.container.ModuleList = prim::GetAttr[name="mogrifier_list"](%mogrifier_lstm_layer1)
+  %_2.1 : __torch__.torch.nn.modules.linear.___torch_mangle_1.Linear = prim::GetAttr[name="2"](%mogrifier_list.5)
+  %mogrifier_list.3 : __torch__.torch.nn.modules.container.ModuleList = prim::GetAttr[name="mogrifier_list"](%mogrifier_lstm_layer1)
+  %_1.1 : __torch__.torch.nn.modules.linear.___torch_mangle_0.Linear = prim::GetAttr[name="1"](%mogrifier_list.3)
+  %mogrifier_list.1 : __torch__.torch.nn.modules.container.ModuleList = prim::GetAttr[name="mogrifier_list"](%mogrifier_lstm_layer1)
+  %_0.1 : __torch__.torch.nn.modules.linear.Linear = prim::GetAttr[name="0"](%mogrifier_list.1)
+  %bias.1 : Tensor = prim::GetAttr[name="bias"](%_0.1)
+  %weight.7 : Tensor = prim::GetAttr[name="weight"](%_0.1)
+  %825 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::linear(%input.3, %weight.7, %bias.1), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.mogrifier_list.0 # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/linear.py:114:0
+  %826 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::sigmoid(%825), scope: __module.mogrifier_lstm_layer1 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %827 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%826, %811), scope: __module.mogrifier_lstm_layer1 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %input.5 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%827, %x.1), scope: __module.mogrifier_lstm_layer1 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %bias.3 : Tensor = prim::GetAttr[name="bias"](%_1.1)
+  %weight.9 : Tensor = prim::GetAttr[name="weight"](%_1.1)
+  %831 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::linear(%input.5, %weight.9, %bias.3), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.mogrifier_list.1 # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/linear.py:114:0
+  %832 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::sigmoid(%831), scope: __module.mogrifier_lstm_layer1 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:21:0
+  %833 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%832, %811), scope: __module.mogrifier_lstm_layer1 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:21:0
+  %input.7 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%833, %input.3), scope: __module.mogrifier_lstm_layer1 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:21:0
+  %bias.5 : Tensor = prim::GetAttr[name="bias"](%_2.1)
+  %weight.11 : Tensor = prim::GetAttr[name="weight"](%_2.1)
+  %837 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::linear(%input.7, %weight.11, %bias.5), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.mogrifier_list.2 # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/linear.py:114:0
+  %838 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::sigmoid(%837), scope: __module.mogrifier_lstm_layer1 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %839 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%838, %811), scope: __module.mogrifier_lstm_layer1 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %input.9 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%839, %input.5), scope: __module.mogrifier_lstm_layer1 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %bias.7 : Tensor = prim::GetAttr[name="bias"](%_3.1)
+  %weight.13 : Tensor = prim::GetAttr[name="weight"](%_3.1)
+  %843 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::linear(%input.9, %weight.13, %bias.7), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.mogrifier_list.3 # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/linear.py:114:0
+  %844 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::sigmoid(%843), scope: __module.mogrifier_lstm_layer1 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:21:0
+  %845 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%844, %811), scope: __module.mogrifier_lstm_layer1 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:21:0
+  %input.11 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%845, %input.7), scope: __module.mogrifier_lstm_layer1 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:21:0
+  %bias.9 : Tensor = prim::GetAttr[name="bias"](%_4.1)
+  %weight.15 : Tensor = prim::GetAttr[name="weight"](%_4.1)
+  %849 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::linear(%input.11, %weight.15, %bias.9), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.mogrifier_list.4 # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/linear.py:114:0
+  %850 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::sigmoid(%849), scope: __module.mogrifier_lstm_layer1 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %851 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%850, %811), scope: __module.mogrifier_lstm_layer1 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %input.13 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%851, %input.9), scope: __module.mogrifier_lstm_layer1 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %bias_ih.1 : Tensor = prim::GetAttr[name="bias_ih"](%lstm.1)
+  %weight_ih.1 : Tensor = prim::GetAttr[name="weight_ih"](%lstm.1)
+  %bias_hh.1 : Tensor = prim::GetAttr[name="bias_hh"](%lstm.1)
+  %weight_hh.1 : Tensor = prim::GetAttr[name="weight_hh"](%lstm.1)
+  %857 : Float(4, 2048, strides=[2048, 1], requires_grad=0, device=cpu) = aten::linear(%input.11, %weight_hh.1, %bias_hh.1), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %858 : Float(4, 2048, strides=[2048, 1], requires_grad=0, device=cpu) = aten::linear(%input.13, %weight_ih.1, %bias_ih.1), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %859 : Float(4, 2048, strides=[2048, 1], requires_grad=0, device=cpu) = aten::add_(%857, %858, %809), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %860 : Tensor[] = aten::unsafe_chunk(%859, %810, %809), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %861 : Float(4, 512, strides=[2048, 1], requires_grad=0, device=cpu), %862 : Float(4, 512, strides=[2048, 1], requires_grad=0, device=cpu), %863 : Float(4, 512, strides=[2048, 1], requires_grad=0, device=cpu), %864 : Float(4, 512, strides=[2048, 1], requires_grad=0, device=cpu) = prim::ListUnpack(%860), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.lstm
+  %865 : Float(4, 512, strides=[2048, 1], requires_grad=0, device=cpu) = aten::sigmoid_(%861), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %866 : Float(4, 512, strides=[2048, 1], requires_grad=0, device=cpu) = aten::sigmoid_(%862), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %867 : Float(4, 512, strides=[2048, 1], requires_grad=0, device=cpu) = aten::tanh_(%863), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %868 : Float(4, 512, strides=[2048, 1], requires_grad=0, device=cpu) = aten::sigmoid_(%864), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %869 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%866, %121), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %870 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%865, %867), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %871 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::add_(%869, %870, %809), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %872 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::tanh(%871), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %x.3 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%868, %872), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %874 : (Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu), Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu)) = prim::TupleConstruct(%x.3, %871)
+  %875 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu), %876 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = prim::TupleUnpack(%874)
+  %877 : (Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu), Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu)) = prim::TupleConstruct(%875, %876)
+  %760 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu), %761 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = prim::TupleUnpack(%877)
+  %878 : int = prim::Constant[value=1](), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %879 : int = prim::Constant[value=4](), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %880 : Long(requires_grad=0, device=cpu) = prim::Constant[value={2}](), scope: __module.mogrifier_lstm_layer2 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %lstm.3 : __torch__.torch.nn.modules.rnn.___torch_mangle_4.LSTMCell = prim::GetAttr[name="lstm"](%mogrifier_lstm_layer2)
+  %mogrifier_list.19 : __torch__.torch.nn.modules.container.___torch_mangle_10.ModuleList = prim::GetAttr[name="mogrifier_list"](%mogrifier_lstm_layer2)
+  %_4.3 : __torch__.torch.nn.modules.linear.___torch_mangle_9.Linear = prim::GetAttr[name="4"](%mogrifier_list.19)
+  %mogrifier_list.17 : __torch__.torch.nn.modules.container.___torch_mangle_10.ModuleList = prim::GetAttr[name="mogrifier_list"](%mogrifier_lstm_layer2)
+  %_3.3 : __torch__.torch.nn.modules.linear.___torch_mangle_8.Linear = prim::GetAttr[name="3"](%mogrifier_list.17)
+  %mogrifier_list.15 : __torch__.torch.nn.modules.container.___torch_mangle_10.ModuleList = prim::GetAttr[name="mogrifier_list"](%mogrifier_lstm_layer2)
+  %_2.3 : __torch__.torch.nn.modules.linear.___torch_mangle_7.Linear = prim::GetAttr[name="2"](%mogrifier_list.15)
+  %mogrifier_list.13 : __torch__.torch.nn.modules.container.___torch_mangle_10.ModuleList = prim::GetAttr[name="mogrifier_list"](%mogrifier_lstm_layer2)
+  %_1.3 : __torch__.torch.nn.modules.linear.___torch_mangle_6.Linear = prim::GetAttr[name="1"](%mogrifier_list.13)
+  %mogrifier_list.11 : __torch__.torch.nn.modules.container.___torch_mangle_10.ModuleList = prim::GetAttr[name="mogrifier_list"](%mogrifier_lstm_layer2)
+  %_0.3 : __torch__.torch.nn.modules.linear.___torch_mangle_5.Linear = prim::GetAttr[name="0"](%mogrifier_list.11)
+  %bias.11 : Tensor = prim::GetAttr[name="bias"](%_0.3)
+  %weight.17 : Tensor = prim::GetAttr[name="weight"](%_0.3)
+  %894 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::linear(%input.15, %weight.17, %bias.11), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.mogrifier_list.0 # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/linear.py:114:0
+  %895 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::sigmoid(%894), scope: __module.mogrifier_lstm_layer2 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %896 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%895, %880), scope: __module.mogrifier_lstm_layer2 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %input.17 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%896, %760), scope: __module.mogrifier_lstm_layer2 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %bias.13 : Tensor = prim::GetAttr[name="bias"](%_1.3)
+  %weight.19 : Tensor = prim::GetAttr[name="weight"](%_1.3)
+  %900 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::linear(%input.17, %weight.19, %bias.13), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.mogrifier_list.1 # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/linear.py:114:0
+  %901 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::sigmoid(%900), scope: __module.mogrifier_lstm_layer2 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:21:0
+  %902 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%901, %880), scope: __module.mogrifier_lstm_layer2 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:21:0
+  %input.19 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%902, %input.15), scope: __module.mogrifier_lstm_layer2 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:21:0
+  %bias.15 : Tensor = prim::GetAttr[name="bias"](%_2.3)
+  %weight.21 : Tensor = prim::GetAttr[name="weight"](%_2.3)
+  %906 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::linear(%input.19, %weight.21, %bias.15), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.mogrifier_list.2 # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/linear.py:114:0
+  %907 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::sigmoid(%906), scope: __module.mogrifier_lstm_layer2 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %908 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%907, %880), scope: __module.mogrifier_lstm_layer2 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %input.21 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%908, %input.17), scope: __module.mogrifier_lstm_layer2 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %bias.17 : Tensor = prim::GetAttr[name="bias"](%_3.3)
+  %weight.23 : Tensor = prim::GetAttr[name="weight"](%_3.3)
+  %912 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::linear(%input.21, %weight.23, %bias.17), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.mogrifier_list.3 # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/linear.py:114:0
+  %913 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::sigmoid(%912), scope: __module.mogrifier_lstm_layer2 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:21:0
+  %914 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%913, %880), scope: __module.mogrifier_lstm_layer2 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:21:0
+  %input.23 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%914, %input.19), scope: __module.mogrifier_lstm_layer2 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:21:0
+  %bias.19 : Tensor = prim::GetAttr[name="bias"](%_4.3)
+  %weight.27 : Tensor = prim::GetAttr[name="weight"](%_4.3)
+  %918 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::linear(%input.23, %weight.27, %bias.19), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.mogrifier_list.4 # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/linear.py:114:0
+  %919 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::sigmoid(%918), scope: __module.mogrifier_lstm_layer2 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %920 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%919, %880), scope: __module.mogrifier_lstm_layer2 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %input.25 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%920, %input.21), scope: __module.mogrifier_lstm_layer2 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %bias_ih.3 : Tensor = prim::GetAttr[name="bias_ih"](%lstm.3)
+  %weight_ih.3 : Tensor = prim::GetAttr[name="weight_ih"](%lstm.3)
+  %bias_hh.3 : Tensor = prim::GetAttr[name="bias_hh"](%lstm.3)
+  %weight_hh.3 : Tensor = prim::GetAttr[name="weight_hh"](%lstm.3)
+  %926 : Float(4, 2048, strides=[2048, 1], requires_grad=0, device=cpu) = aten::linear(%input.23, %weight_hh.3, %bias_hh.3), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %927 : Float(4, 2048, strides=[2048, 1], requires_grad=0, device=cpu) = aten::linear(%input.25, %weight_ih.3, %bias_ih.3), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %928 : Float(4, 2048, strides=[2048, 1], requires_grad=0, device=cpu) = aten::add_(%926, %927, %878), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %929 : Tensor[] = aten::unsafe_chunk(%928, %879, %878), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %930 : Float(4, 512, strides=[2048, 1], requires_grad=0, device=cpu), %931 : Float(4, 512, strides=[2048, 1], requires_grad=0, device=cpu), %932 : Float(4, 512, strides=[2048, 1], requires_grad=0, device=cpu), %933 : Float(4, 512, strides=[2048, 1], requires_grad=0, device=cpu) = prim::ListUnpack(%929), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.lstm
+  %934 : Float(4, 512, strides=[2048, 1], requires_grad=0, device=cpu) = aten::sigmoid_(%930), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %935 : Float(4, 512, strides=[2048, 1], requires_grad=0, device=cpu) = aten::sigmoid_(%931), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %936 : Float(4, 512, strides=[2048, 1], requires_grad=0, device=cpu) = aten::tanh_(%932), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %937 : Float(4, 512, strides=[2048, 1], requires_grad=0, device=cpu) = aten::sigmoid_(%933), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %938 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%935, %137), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %939 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%934, %936), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %940 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::add_(%938, %939, %878), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %941 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::tanh(%940), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %input.27 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%937, %941), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %943 : (Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu), Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu)) = prim::TupleConstruct(%input.27, %940)
+  %944 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu), %945 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = prim::TupleUnpack(%943)
+  %946 : (Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu), Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu)) = prim::TupleConstruct(%944, %945)
+  %768 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu), %769 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = prim::TupleUnpack(%946)
+  %947 : bool = prim::Constant[value=0](), scope: __module.drop # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/functional.py:1252:0
+  %948 : float = prim::Constant[value=0.5](), scope: __module.drop # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/functional.py:1252:0
+  %input.29 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::dropout(%768, %948, %947), scope: __module.drop # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/functional.py:1252:0
+  %bias.21 : Tensor = prim::GetAttr[name="bias"](%fc)
+  %out.1 : Float(4, 30, strides=[30, 1], requires_grad=0, device=cpu) = aten::linear(%input.29, %weight.3, %bias.21), scope: __module.fc # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/linear.py:114:0
+  %245 : int = prim::Constant[value=1]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:32:0
+  %246 : Float(4, 1, 512, strides=[512, 512, 1], requires_grad=0, device=cpu) = aten::unsqueeze(%input.29, %245) # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:32:0
+  %247 : int = prim::Constant[value=1]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:33:0
+  %248 : Float(4, 1, 30, strides=[30, 30, 1], requires_grad=0, device=cpu) = aten::unsqueeze(%out.1, %247) # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:33:0
+  %249 : int = prim::Constant[value=0]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:28:0
+  %250 : int = prim::Constant[value=0]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:28:0
+  %251 : int = prim::Constant[value=9223372036854775807]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:28:0
+  %252 : int = prim::Constant[value=1]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:28:0
+  %253 : Float(4, 10, 512, strides=[5120, 512, 1], requires_grad=0, device=cpu) = aten::slice(%embed, %249, %250, %251, %252) # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:28:0
+  %254 : int = prim::Constant[value=1]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:28:0
+  %255 : int = prim::Constant[value=1]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:28:0
+  %input.31 : Float(4, 512, strides=[5120, 1], requires_grad=0, device=cpu) = aten::select(%253, %254, %255) # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:28:0
+  %952 : bool = prim::Constant[value=0](), scope: __module.drop # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/functional.py:1252:0
+  %953 : float = prim::Constant[value=0.5](), scope: __module.drop # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/functional.py:1252:0
+  %x.5 : Float(4, 512, strides=[5120, 1], requires_grad=0, device=cpu) = aten::dropout(%input.31, %953, %952), scope: __module.drop # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/functional.py:1252:0
+  %955 : int = prim::Constant[value=1](), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %956 : int = prim::Constant[value=4](), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %957 : Long(requires_grad=0, device=cpu) = prim::Constant[value={2}](), scope: __module.mogrifier_lstm_layer1 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %lstm.5 : __torch__.torch.nn.modules.rnn.LSTMCell = prim::GetAttr[name="lstm"](%mogrifier_lstm_layer1)
+  %mogrifier_list.29 : __torch__.torch.nn.modules.container.ModuleList = prim::GetAttr[name="mogrifier_list"](%mogrifier_lstm_layer1)
+  %_4.5 : __torch__.torch.nn.modules.linear.___torch_mangle_3.Linear = prim::GetAttr[name="4"](%mogrifier_list.29)
+  %mogrifier_list.27 : __torch__.torch.nn.modules.container.ModuleList = prim::GetAttr[name="mogrifier_list"](%mogrifier_lstm_layer1)
+  %_3.5 : __torch__.torch.nn.modules.linear.___torch_mangle_2.Linear = prim::GetAttr[name="3"](%mogrifier_list.27)
+  %mogrifier_list.25 : __torch__.torch.nn.modules.container.ModuleList = prim::GetAttr[name="mogrifier_list"](%mogrifier_lstm_layer1)
+  %_2.5 : __torch__.torch.nn.modules.linear.___torch_mangle_1.Linear = prim::GetAttr[name="2"](%mogrifier_list.25)
+  %mogrifier_list.23 : __torch__.torch.nn.modules.container.ModuleList = prim::GetAttr[name="mogrifier_list"](%mogrifier_lstm_layer1)
+  %_1.5 : __torch__.torch.nn.modules.linear.___torch_mangle_0.Linear = prim::GetAttr[name="1"](%mogrifier_list.23)
+  %mogrifier_list.21 : __torch__.torch.nn.modules.container.ModuleList = prim::GetAttr[name="mogrifier_list"](%mogrifier_lstm_layer1)
+  %_0.5 : __torch__.torch.nn.modules.linear.Linear = prim::GetAttr[name="0"](%mogrifier_list.21)
+  %bias.23 : Tensor = prim::GetAttr[name="bias"](%_0.5)
+  %weight.29 : Tensor = prim::GetAttr[name="weight"](%_0.5)
+  %971 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::linear(%760, %weight.29, %bias.23), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.mogrifier_list.0 # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/linear.py:114:0
+  %972 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::sigmoid(%971), scope: __module.mogrifier_lstm_layer1 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %973 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%972, %957), scope: __module.mogrifier_lstm_layer1 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %input.33 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%973, %x.5), scope: __module.mogrifier_lstm_layer1 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %bias.25 : Tensor = prim::GetAttr[name="bias"](%_1.5)
+  %weight.31 : Tensor = prim::GetAttr[name="weight"](%_1.5)
+  %977 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::linear(%input.33, %weight.31, %bias.25), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.mogrifier_list.1 # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/linear.py:114:0
+  %978 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::sigmoid(%977), scope: __module.mogrifier_lstm_layer1 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:21:0
+  %979 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%978, %957), scope: __module.mogrifier_lstm_layer1 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:21:0
+  %input.35 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%979, %760), scope: __module.mogrifier_lstm_layer1 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:21:0
+  %bias.27 : Tensor = prim::GetAttr[name="bias"](%_2.5)
+  %weight.33 : Tensor = prim::GetAttr[name="weight"](%_2.5)
+  %983 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::linear(%input.35, %weight.33, %bias.27), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.mogrifier_list.2 # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/linear.py:114:0
+  %984 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::sigmoid(%983), scope: __module.mogrifier_lstm_layer1 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %985 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%984, %957), scope: __module.mogrifier_lstm_layer1 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %input.37 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%985, %input.33), scope: __module.mogrifier_lstm_layer1 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %bias.29 : Tensor = prim::GetAttr[name="bias"](%_3.5)
+  %weight.35 : Tensor = prim::GetAttr[name="weight"](%_3.5)
+  %989 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::linear(%input.37, %weight.35, %bias.29), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.mogrifier_list.3 # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/linear.py:114:0
+  %990 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::sigmoid(%989), scope: __module.mogrifier_lstm_layer1 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:21:0
+  %991 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%990, %957), scope: __module.mogrifier_lstm_layer1 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:21:0
+  %input.39 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%991, %input.35), scope: __module.mogrifier_lstm_layer1 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:21:0
+  %bias.31 : Tensor = prim::GetAttr[name="bias"](%_4.5)
+  %weight.37 : Tensor = prim::GetAttr[name="weight"](%_4.5)
+  %995 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::linear(%input.39, %weight.37, %bias.31), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.mogrifier_list.4 # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/linear.py:114:0
+  %996 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::sigmoid(%995), scope: __module.mogrifier_lstm_layer1 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %997 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%996, %957), scope: __module.mogrifier_lstm_layer1 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %input.41 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%997, %input.37), scope: __module.mogrifier_lstm_layer1 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %bias_ih.5 : Tensor = prim::GetAttr[name="bias_ih"](%lstm.5)
+  %weight_ih.5 : Tensor = prim::GetAttr[name="weight_ih"](%lstm.5)
+  %bias_hh.5 : Tensor = prim::GetAttr[name="bias_hh"](%lstm.5)
+  %weight_hh.5 : Tensor = prim::GetAttr[name="weight_hh"](%lstm.5)
+  %1003 : Float(4, 2048, strides=[2048, 1], requires_grad=0, device=cpu) = aten::linear(%input.39, %weight_hh.5, %bias_hh.5), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1004 : Float(4, 2048, strides=[2048, 1], requires_grad=0, device=cpu) = aten::linear(%input.41, %weight_ih.5, %bias_ih.5), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1005 : Float(4, 2048, strides=[2048, 1], requires_grad=0, device=cpu) = aten::add_(%1003, %1004, %955), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1006 : Tensor[] = aten::unsafe_chunk(%1005, %956, %955), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1007 : Float(4, 512, strides=[2048, 1], requires_grad=0, device=cpu), %1008 : Float(4, 512, strides=[2048, 1], requires_grad=0, device=cpu), %1009 : Float(4, 512, strides=[2048, 1], requires_grad=0, device=cpu), %1010 : Float(4, 512, strides=[2048, 1], requires_grad=0, device=cpu) = prim::ListUnpack(%1006), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.lstm
+  %1011 : Float(4, 512, strides=[2048, 1], requires_grad=0, device=cpu) = aten::sigmoid_(%1007), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1012 : Float(4, 512, strides=[2048, 1], requires_grad=0, device=cpu) = aten::sigmoid_(%1008), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1013 : Float(4, 512, strides=[2048, 1], requires_grad=0, device=cpu) = aten::tanh_(%1009), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1014 : Float(4, 512, strides=[2048, 1], requires_grad=0, device=cpu) = aten::sigmoid_(%1010), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1015 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%1012, %761), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1016 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%1011, %1013), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1017 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::add_(%1015, %1016, %955), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1018 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::tanh(%1017), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %x.7 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%1014, %1018), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1020 : (Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu), Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu)) = prim::TupleConstruct(%x.7, %1017)
+  %1021 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu), %1022 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = prim::TupleUnpack(%1020)
+  %1023 : (Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu), Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu)) = prim::TupleConstruct(%1021, %1022)
+  %776 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu), %777 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = prim::TupleUnpack(%1023)
+  %1024 : int = prim::Constant[value=1](), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1025 : int = prim::Constant[value=4](), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1026 : Long(requires_grad=0, device=cpu) = prim::Constant[value={2}](), scope: __module.mogrifier_lstm_layer2 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %lstm.7 : __torch__.torch.nn.modules.rnn.___torch_mangle_4.LSTMCell = prim::GetAttr[name="lstm"](%mogrifier_lstm_layer2)
+  %mogrifier_list.39 : __torch__.torch.nn.modules.container.___torch_mangle_10.ModuleList = prim::GetAttr[name="mogrifier_list"](%mogrifier_lstm_layer2)
+  %_4.7 : __torch__.torch.nn.modules.linear.___torch_mangle_9.Linear = prim::GetAttr[name="4"](%mogrifier_list.39)
+  %mogrifier_list.37 : __torch__.torch.nn.modules.container.___torch_mangle_10.ModuleList = prim::GetAttr[name="mogrifier_list"](%mogrifier_lstm_layer2)
+  %_3.7 : __torch__.torch.nn.modules.linear.___torch_mangle_8.Linear = prim::GetAttr[name="3"](%mogrifier_list.37)
+  %mogrifier_list.35 : __torch__.torch.nn.modules.container.___torch_mangle_10.ModuleList = prim::GetAttr[name="mogrifier_list"](%mogrifier_lstm_layer2)
+  %_2.7 : __torch__.torch.nn.modules.linear.___torch_mangle_7.Linear = prim::GetAttr[name="2"](%mogrifier_list.35)
+  %mogrifier_list.33 : __torch__.torch.nn.modules.container.___torch_mangle_10.ModuleList = prim::GetAttr[name="mogrifier_list"](%mogrifier_lstm_layer2)
+  %_1.7 : __torch__.torch.nn.modules.linear.___torch_mangle_6.Linear = prim::GetAttr[name="1"](%mogrifier_list.33)
+  %mogrifier_list.31 : __torch__.torch.nn.modules.container.___torch_mangle_10.ModuleList = prim::GetAttr[name="mogrifier_list"](%mogrifier_lstm_layer2)
+  %_0.7 : __torch__.torch.nn.modules.linear.___torch_mangle_5.Linear = prim::GetAttr[name="0"](%mogrifier_list.31)
+  %bias.33 : Tensor = prim::GetAttr[name="bias"](%_0.7)
+  %weight.39 : Tensor = prim::GetAttr[name="weight"](%_0.7)
+  %1040 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::linear(%input.29, %weight.39, %bias.33), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.mogrifier_list.0 # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/linear.py:114:0
+  %1041 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::sigmoid(%1040), scope: __module.mogrifier_lstm_layer2 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %1042 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%1041, %1026), scope: __module.mogrifier_lstm_layer2 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %input.43 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%1042, %776), scope: __module.mogrifier_lstm_layer2 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %bias.35 : Tensor = prim::GetAttr[name="bias"](%_1.7)
+  %weight.41 : Tensor = prim::GetAttr[name="weight"](%_1.7)
+  %1046 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::linear(%input.43, %weight.41, %bias.35), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.mogrifier_list.1 # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/linear.py:114:0
+  %1047 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::sigmoid(%1046), scope: __module.mogrifier_lstm_layer2 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:21:0
+  %1048 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%1047, %1026), scope: __module.mogrifier_lstm_layer2 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:21:0
+  %input.45 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%1048, %input.29), scope: __module.mogrifier_lstm_layer2 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:21:0
+  %bias.37 : Tensor = prim::GetAttr[name="bias"](%_2.7)
+  %weight.43 : Tensor = prim::GetAttr[name="weight"](%_2.7)
+  %1052 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::linear(%input.45, %weight.43, %bias.37), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.mogrifier_list.2 # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/linear.py:114:0
+  %1053 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::sigmoid(%1052), scope: __module.mogrifier_lstm_layer2 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %1054 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%1053, %1026), scope: __module.mogrifier_lstm_layer2 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %input.47 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%1054, %input.43), scope: __module.mogrifier_lstm_layer2 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %bias.39 : Tensor = prim::GetAttr[name="bias"](%_3.7)
+  %weight.45 : Tensor = prim::GetAttr[name="weight"](%_3.7)
+  %1058 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::linear(%input.47, %weight.45, %bias.39), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.mogrifier_list.3 # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/linear.py:114:0
+  %1059 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::sigmoid(%1058), scope: __module.mogrifier_lstm_layer2 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:21:0
+  %1060 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%1059, %1026), scope: __module.mogrifier_lstm_layer2 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:21:0
+  %input.49 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%1060, %input.45), scope: __module.mogrifier_lstm_layer2 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:21:0
+  %bias.41 : Tensor = prim::GetAttr[name="bias"](%_4.7)
+  %weight.49 : Tensor = prim::GetAttr[name="weight"](%_4.7)
+  %1064 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::linear(%input.49, %weight.49, %bias.41), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.mogrifier_list.4 # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/linear.py:114:0
+  %1065 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::sigmoid(%1064), scope: __module.mogrifier_lstm_layer2 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %1066 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%1065, %1026), scope: __module.mogrifier_lstm_layer2 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %input.51 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%1066, %input.47), scope: __module.mogrifier_lstm_layer2 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %bias_ih.7 : Tensor = prim::GetAttr[name="bias_ih"](%lstm.7)
+  %weight_ih.7 : Tensor = prim::GetAttr[name="weight_ih"](%lstm.7)
+  %bias_hh.7 : Tensor = prim::GetAttr[name="bias_hh"](%lstm.7)
+  %weight_hh.7 : Tensor = prim::GetAttr[name="weight_hh"](%lstm.7)
+  %1072 : Float(4, 2048, strides=[2048, 1], requires_grad=0, device=cpu) = aten::linear(%input.49, %weight_hh.7, %bias_hh.7), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1073 : Float(4, 2048, strides=[2048, 1], requires_grad=0, device=cpu) = aten::linear(%input.51, %weight_ih.7, %bias_ih.7), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1074 : Float(4, 2048, strides=[2048, 1], requires_grad=0, device=cpu) = aten::add_(%1072, %1073, %1024), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1075 : Tensor[] = aten::unsafe_chunk(%1074, %1025, %1024), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1076 : Float(4, 512, strides=[2048, 1], requires_grad=0, device=cpu), %1077 : Float(4, 512, strides=[2048, 1], requires_grad=0, device=cpu), %1078 : Float(4, 512, strides=[2048, 1], requires_grad=0, device=cpu), %1079 : Float(4, 512, strides=[2048, 1], requires_grad=0, device=cpu) = prim::ListUnpack(%1075), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.lstm
+  %1080 : Float(4, 512, strides=[2048, 1], requires_grad=0, device=cpu) = aten::sigmoid_(%1076), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1081 : Float(4, 512, strides=[2048, 1], requires_grad=0, device=cpu) = aten::sigmoid_(%1077), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1082 : Float(4, 512, strides=[2048, 1], requires_grad=0, device=cpu) = aten::tanh_(%1078), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1083 : Float(4, 512, strides=[2048, 1], requires_grad=0, device=cpu) = aten::sigmoid_(%1079), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1084 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%1081, %769), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1085 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%1080, %1082), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1086 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::add_(%1084, %1085, %1024), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1087 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::tanh(%1086), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %input.53 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%1083, %1087), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1089 : (Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu), Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu)) = prim::TupleConstruct(%input.53, %1086)
+  %1090 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu), %1091 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = prim::TupleUnpack(%1089)
+  %1092 : (Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu), Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu)) = prim::TupleConstruct(%1090, %1091)
+  %784 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu), %785 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = prim::TupleUnpack(%1092)
+  %1093 : bool = prim::Constant[value=0](), scope: __module.drop # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/functional.py:1252:0
+  %1094 : float = prim::Constant[value=0.5](), scope: __module.drop # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/functional.py:1252:0
+  %input.55 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::dropout(%784, %1094, %1093), scope: __module.drop # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/functional.py:1252:0
+  %bias.43 : Tensor = prim::GetAttr[name="bias"](%fc)
+  %out.3 : Float(4, 30, strides=[30, 1], requires_grad=0, device=cpu) = aten::linear(%input.55, %weight.3, %bias.43), scope: __module.fc # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/linear.py:114:0
+  %356 : int = prim::Constant[value=1]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:32:0
+  %357 : Float(4, 1, 512, strides=[512, 512, 1], requires_grad=0, device=cpu) = aten::unsqueeze(%input.55, %356) # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:32:0
+  %358 : int = prim::Constant[value=1]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:33:0
+  %359 : Float(4, 1, 30, strides=[30, 30, 1], requires_grad=0, device=cpu) = aten::unsqueeze(%out.3, %358) # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:33:0
+  %360 : int = prim::Constant[value=0]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:28:0
+  %361 : int = prim::Constant[value=0]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:28:0
+  %362 : int = prim::Constant[value=9223372036854775807]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:28:0
+  %363 : int = prim::Constant[value=1]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:28:0
+  %364 : Float(4, 10, 512, strides=[5120, 512, 1], requires_grad=0, device=cpu) = aten::slice(%embed, %360, %361, %362, %363) # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:28:0
+  %365 : int = prim::Constant[value=1]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:28:0
+  %366 : int = prim::Constant[value=2]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:28:0
+  %input.57 : Float(4, 512, strides=[5120, 1], requires_grad=0, device=cpu) = aten::select(%364, %365, %366) # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:28:0
+  %1098 : bool = prim::Constant[value=0](), scope: __module.drop # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/functional.py:1252:0
+  %1099 : float = prim::Constant[value=0.5](), scope: __module.drop # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/functional.py:1252:0
+  %x.9 : Float(4, 512, strides=[5120, 1], requires_grad=0, device=cpu) = aten::dropout(%input.57, %1099, %1098), scope: __module.drop # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/functional.py:1252:0
+  %1101 : int = prim::Constant[value=1](), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1102 : int = prim::Constant[value=4](), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1103 : Long(requires_grad=0, device=cpu) = prim::Constant[value={2}](), scope: __module.mogrifier_lstm_layer1 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %lstm.9 : __torch__.torch.nn.modules.rnn.LSTMCell = prim::GetAttr[name="lstm"](%mogrifier_lstm_layer1)
+  %mogrifier_list.49 : __torch__.torch.nn.modules.container.ModuleList = prim::GetAttr[name="mogrifier_list"](%mogrifier_lstm_layer1)
+  %_4.9 : __torch__.torch.nn.modules.linear.___torch_mangle_3.Linear = prim::GetAttr[name="4"](%mogrifier_list.49)
+  %mogrifier_list.47 : __torch__.torch.nn.modules.container.ModuleList = prim::GetAttr[name="mogrifier_list"](%mogrifier_lstm_layer1)
+  %_3.9 : __torch__.torch.nn.modules.linear.___torch_mangle_2.Linear = prim::GetAttr[name="3"](%mogrifier_list.47)
+  %mogrifier_list.45 : __torch__.torch.nn.modules.container.ModuleList = prim::GetAttr[name="mogrifier_list"](%mogrifier_lstm_layer1)
+  %_2.9 : __torch__.torch.nn.modules.linear.___torch_mangle_1.Linear = prim::GetAttr[name="2"](%mogrifier_list.45)
+  %mogrifier_list.43 : __torch__.torch.nn.modules.container.ModuleList = prim::GetAttr[name="mogrifier_list"](%mogrifier_lstm_layer1)
+  %_1.9 : __torch__.torch.nn.modules.linear.___torch_mangle_0.Linear = prim::GetAttr[name="1"](%mogrifier_list.43)
+  %mogrifier_list.41 : __torch__.torch.nn.modules.container.ModuleList = prim::GetAttr[name="mogrifier_list"](%mogrifier_lstm_layer1)
+  %_0.9 : __torch__.torch.nn.modules.linear.Linear = prim::GetAttr[name="0"](%mogrifier_list.41)
+  %bias.45 : Tensor = prim::GetAttr[name="bias"](%_0.9)
+  %weight.51 : Tensor = prim::GetAttr[name="weight"](%_0.9)
+  %1117 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::linear(%776, %weight.51, %bias.45), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.mogrifier_list.0 # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/linear.py:114:0
+  %1118 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::sigmoid(%1117), scope: __module.mogrifier_lstm_layer1 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %1119 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%1118, %1103), scope: __module.mogrifier_lstm_layer1 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %input.59 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%1119, %x.9), scope: __module.mogrifier_lstm_layer1 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %bias.47 : Tensor = prim::GetAttr[name="bias"](%_1.9)
+  %weight.53 : Tensor = prim::GetAttr[name="weight"](%_1.9)
+  %1123 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::linear(%input.59, %weight.53, %bias.47), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.mogrifier_list.1 # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/linear.py:114:0
+  %1124 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::sigmoid(%1123), scope: __module.mogrifier_lstm_layer1 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:21:0
+  %1125 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%1124, %1103), scope: __module.mogrifier_lstm_layer1 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:21:0
+  %input.61 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%1125, %776), scope: __module.mogrifier_lstm_layer1 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:21:0
+  %bias.49 : Tensor = prim::GetAttr[name="bias"](%_2.9)
+  %weight.55 : Tensor = prim::GetAttr[name="weight"](%_2.9)
+  %1129 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::linear(%input.61, %weight.55, %bias.49), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.mogrifier_list.2 # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/linear.py:114:0
+  %1130 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::sigmoid(%1129), scope: __module.mogrifier_lstm_layer1 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %1131 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%1130, %1103), scope: __module.mogrifier_lstm_layer1 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %input.63 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%1131, %input.59), scope: __module.mogrifier_lstm_layer1 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %bias.51 : Tensor = prim::GetAttr[name="bias"](%_3.9)
+  %weight.57 : Tensor = prim::GetAttr[name="weight"](%_3.9)
+  %1135 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::linear(%input.63, %weight.57, %bias.51), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.mogrifier_list.3 # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/linear.py:114:0
+  %1136 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::sigmoid(%1135), scope: __module.mogrifier_lstm_layer1 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:21:0
+  %1137 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%1136, %1103), scope: __module.mogrifier_lstm_layer1 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:21:0
+  %input.65 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%1137, %input.61), scope: __module.mogrifier_lstm_layer1 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:21:0
+  %bias.53 : Tensor = prim::GetAttr[name="bias"](%_4.9)
+  %weight.59 : Tensor = prim::GetAttr[name="weight"](%_4.9)
+  %1141 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::linear(%input.65, %weight.59, %bias.53), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.mogrifier_list.4 # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/linear.py:114:0
+  %1142 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::sigmoid(%1141), scope: __module.mogrifier_lstm_layer1 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %1143 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%1142, %1103), scope: __module.mogrifier_lstm_layer1 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %input.67 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%1143, %input.63), scope: __module.mogrifier_lstm_layer1 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %bias_ih.9 : Tensor = prim::GetAttr[name="bias_ih"](%lstm.9)
+  %weight_ih.9 : Tensor = prim::GetAttr[name="weight_ih"](%lstm.9)
+  %bias_hh.9 : Tensor = prim::GetAttr[name="bias_hh"](%lstm.9)
+  %weight_hh.9 : Tensor = prim::GetAttr[name="weight_hh"](%lstm.9)
+  %1149 : Float(4, 2048, strides=[2048, 1], requires_grad=0, device=cpu) = aten::linear(%input.65, %weight_hh.9, %bias_hh.9), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1150 : Float(4, 2048, strides=[2048, 1], requires_grad=0, device=cpu) = aten::linear(%input.67, %weight_ih.9, %bias_ih.9), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1151 : Float(4, 2048, strides=[2048, 1], requires_grad=0, device=cpu) = aten::add_(%1149, %1150, %1101), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1152 : Tensor[] = aten::unsafe_chunk(%1151, %1102, %1101), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1153 : Float(4, 512, strides=[2048, 1], requires_grad=0, device=cpu), %1154 : Float(4, 512, strides=[2048, 1], requires_grad=0, device=cpu), %1155 : Float(4, 512, strides=[2048, 1], requires_grad=0, device=cpu), %1156 : Float(4, 512, strides=[2048, 1], requires_grad=0, device=cpu) = prim::ListUnpack(%1152), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.lstm
+  %1157 : Float(4, 512, strides=[2048, 1], requires_grad=0, device=cpu) = aten::sigmoid_(%1153), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1158 : Float(4, 512, strides=[2048, 1], requires_grad=0, device=cpu) = aten::sigmoid_(%1154), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1159 : Float(4, 512, strides=[2048, 1], requires_grad=0, device=cpu) = aten::tanh_(%1155), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1160 : Float(4, 512, strides=[2048, 1], requires_grad=0, device=cpu) = aten::sigmoid_(%1156), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1161 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%1158, %777), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1162 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%1157, %1159), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1163 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::add_(%1161, %1162, %1101), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1164 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::tanh(%1163), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %x : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%1160, %1164), scope: __module.mogrifier_lstm_layer1/__module.mogrifier_lstm_layer1.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1166 : int = prim::Constant[value=1](), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1167 : int = prim::Constant[value=4](), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1168 : Long(requires_grad=0, device=cpu) = prim::Constant[value={2}](), scope: __module.mogrifier_lstm_layer2 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %lstm : __torch__.torch.nn.modules.rnn.___torch_mangle_4.LSTMCell = prim::GetAttr[name="lstm"](%mogrifier_lstm_layer2)
+  %mogrifier_list : __torch__.torch.nn.modules.container.___torch_mangle_10.ModuleList = prim::GetAttr[name="mogrifier_list"](%mogrifier_lstm_layer2)
+  %_4 : __torch__.torch.nn.modules.linear.___torch_mangle_9.Linear = prim::GetAttr[name="4"](%mogrifier_list)
+  %mogrifier_list.57 : __torch__.torch.nn.modules.container.___torch_mangle_10.ModuleList = prim::GetAttr[name="mogrifier_list"](%mogrifier_lstm_layer2)
+  %_3 : __torch__.torch.nn.modules.linear.___torch_mangle_8.Linear = prim::GetAttr[name="3"](%mogrifier_list.57)
+  %mogrifier_list.55 : __torch__.torch.nn.modules.container.___torch_mangle_10.ModuleList = prim::GetAttr[name="mogrifier_list"](%mogrifier_lstm_layer2)
+  %_2 : __torch__.torch.nn.modules.linear.___torch_mangle_7.Linear = prim::GetAttr[name="2"](%mogrifier_list.55)
+  %mogrifier_list.53 : __torch__.torch.nn.modules.container.___torch_mangle_10.ModuleList = prim::GetAttr[name="mogrifier_list"](%mogrifier_lstm_layer2)
+  %_1 : __torch__.torch.nn.modules.linear.___torch_mangle_6.Linear = prim::GetAttr[name="1"](%mogrifier_list.53)
+  %mogrifier_list.51 : __torch__.torch.nn.modules.container.___torch_mangle_10.ModuleList = prim::GetAttr[name="mogrifier_list"](%mogrifier_lstm_layer2)
+  %_0 : __torch__.torch.nn.modules.linear.___torch_mangle_5.Linear = prim::GetAttr[name="0"](%mogrifier_list.51)
+  %bias.55 : Tensor = prim::GetAttr[name="bias"](%_0)
+  %weight.61 : Tensor = prim::GetAttr[name="weight"](%_0)
+  %1182 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::linear(%input.55, %weight.61, %bias.55), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.mogrifier_list.0 # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/linear.py:114:0
+  %1183 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::sigmoid(%1182), scope: __module.mogrifier_lstm_layer2 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %1184 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%1183, %1168), scope: __module.mogrifier_lstm_layer2 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %input.69 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%1184, %x), scope: __module.mogrifier_lstm_layer2 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %bias.57 : Tensor = prim::GetAttr[name="bias"](%_1)
+  %weight.63 : Tensor = prim::GetAttr[name="weight"](%_1)
+  %1188 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::linear(%input.69, %weight.63, %bias.57), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.mogrifier_list.1 # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/linear.py:114:0
+  %1189 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::sigmoid(%1188), scope: __module.mogrifier_lstm_layer2 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:21:0
+  %1190 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%1189, %1168), scope: __module.mogrifier_lstm_layer2 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:21:0
+  %input.71 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%1190, %input.55), scope: __module.mogrifier_lstm_layer2 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:21:0
+  %bias.59 : Tensor = prim::GetAttr[name="bias"](%_2)
+  %weight.65 : Tensor = prim::GetAttr[name="weight"](%_2)
+  %1194 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::linear(%input.71, %weight.65, %bias.59), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.mogrifier_list.2 # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/linear.py:114:0
+  %1195 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::sigmoid(%1194), scope: __module.mogrifier_lstm_layer2 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %1196 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%1195, %1168), scope: __module.mogrifier_lstm_layer2 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %input.73 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%1196, %input.69), scope: __module.mogrifier_lstm_layer2 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %bias.61 : Tensor = prim::GetAttr[name="bias"](%_3)
+  %weight.67 : Tensor = prim::GetAttr[name="weight"](%_3)
+  %1200 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::linear(%input.73, %weight.67, %bias.61), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.mogrifier_list.3 # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/linear.py:114:0
+  %1201 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::sigmoid(%1200), scope: __module.mogrifier_lstm_layer2 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:21:0
+  %1202 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%1201, %1168), scope: __module.mogrifier_lstm_layer2 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:21:0
+  %input.75 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%1202, %input.71), scope: __module.mogrifier_lstm_layer2 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:21:0
+  %bias.63 : Tensor = prim::GetAttr[name="bias"](%_4)
+  %weight : Tensor = prim::GetAttr[name="weight"](%_4)
+  %1206 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::linear(%input.75, %weight, %bias.63), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.mogrifier_list.4 # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/linear.py:114:0
+  %1207 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::sigmoid(%1206), scope: __module.mogrifier_lstm_layer2 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %1208 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%1207, %1168), scope: __module.mogrifier_lstm_layer2 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %input.77 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%1208, %input.73), scope: __module.mogrifier_lstm_layer2 # /Users/shwangyanfei/work/experiment_tvm/torch/mog_lstm.py:23:0
+  %bias_ih : Tensor = prim::GetAttr[name="bias_ih"](%lstm)
+  %weight_ih : Tensor = prim::GetAttr[name="weight_ih"](%lstm)
+  %bias_hh : Tensor = prim::GetAttr[name="bias_hh"](%lstm)
+  %weight_hh : Tensor = prim::GetAttr[name="weight_hh"](%lstm)
+  %1214 : Float(4, 2048, strides=[2048, 1], requires_grad=0, device=cpu) = aten::linear(%input.75, %weight_hh, %bias_hh), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1215 : Float(4, 2048, strides=[2048, 1], requires_grad=0, device=cpu) = aten::linear(%input.77, %weight_ih, %bias_ih), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1216 : Float(4, 2048, strides=[2048, 1], requires_grad=0, device=cpu) = aten::add_(%1214, %1215, %1166), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1217 : Tensor[] = aten::unsafe_chunk(%1216, %1167, %1166), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1218 : Float(4, 512, strides=[2048, 1], requires_grad=0, device=cpu), %1219 : Float(4, 512, strides=[2048, 1], requires_grad=0, device=cpu), %1220 : Float(4, 512, strides=[2048, 1], requires_grad=0, device=cpu), %1221 : Float(4, 512, strides=[2048, 1], requires_grad=0, device=cpu) = prim::ListUnpack(%1217), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.lstm
+  %1222 : Float(4, 512, strides=[2048, 1], requires_grad=0, device=cpu) = aten::sigmoid_(%1218), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1223 : Float(4, 512, strides=[2048, 1], requires_grad=0, device=cpu) = aten::sigmoid_(%1219), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1224 : Float(4, 512, strides=[2048, 1], requires_grad=0, device=cpu) = aten::tanh_(%1220), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1225 : Float(4, 512, strides=[2048, 1], requires_grad=0, device=cpu) = aten::sigmoid_(%1221), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1226 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%1223, %785), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1227 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%1222, %1224), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1228 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::add_(%1226, %1227, %1166), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1229 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::tanh(%1228), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %input.79 : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::mul(%1225, %1229), scope: __module.mogrifier_lstm_layer2/__module.mogrifier_lstm_layer2.lstm # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/rnn.py:1189:0
+  %1231 : bool = prim::Constant[value=0](), scope: __module.drop # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/functional.py:1252:0
+  %1232 : float = prim::Constant[value=0.5](), scope: __module.drop # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/functional.py:1252:0
+  %input : Float(4, 512, strides=[512, 1], requires_grad=0, device=cpu) = aten::dropout(%input.79, %1232, %1231), scope: __module.drop # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/functional.py:1252:0
+  %bias : Tensor = prim::GetAttr[name="bias"](%fc)
+  %out : Float(4, 30, strides=[30, 1], requires_grad=0, device=cpu) = aten::linear(%input, %weight.3, %bias), scope: __module.fc # /Users/shwangyanfei/opt/miniconda3/lib/python3.9/site-packages/torch/nn/modules/linear.py:114:0
+  %467 : int = prim::Constant[value=1]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:32:0
+  %468 : Float(4, 1, 512, strides=[512, 512, 1], requires_grad=0, device=cpu) = aten::unsqueeze(%input, %467) # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:32:0
+  %469 : int = prim::Constant[value=1]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:33:0
+  %470 : Float(4, 1, 30, strides=[30, 30, 1], requires_grad=0, device=cpu) = aten::unsqueeze(%out, %469) # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:33:0
+  %471 : Tensor[] = prim::ListConstruct(%246, %357, %468)
+  %472 : int = prim::Constant[value=1]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:36:0
+  %473 : Float(4, 3, 512, strides=[1536, 512, 1], requires_grad=0, device=cpu) = aten::cat(%471, %472) # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:36:0
+  %474 : Tensor[] = prim::ListConstruct(%248, %359, %470)
+  %475 : int = prim::Constant[value=1]() # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:37:0
+  %476 : Float(4, 3, 30, strides=[90, 30, 1], requires_grad=0, device=cpu) = aten::cat(%474, %475) # /Users/shwangyanfei/work/experiment_tvm/torch/example.py:37:0
+  %477 : (Float(4, 3, 30, strides=[90, 30, 1], requires_grad=0, device=cpu), Float(4, 3, 512, strides=[1536, 512, 1], requires_grad=0, device=cpu)) = prim::TupleConstruct(%476, %473)
+  return (%477)
+
