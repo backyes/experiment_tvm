@@ -56,7 +56,7 @@
 
 
 # Update TensorFlow, as this notebook requires version 2.9 or later
-get_ipython().system('pip install -q -U tensorflow>=2.9.0')
+#get_ipython().system('pip install -q -U tensorflow>=2.9.0')
 import tensorflow as tf
 
 
