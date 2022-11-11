@@ -23,7 +23,7 @@ def run_tuning(tasks, task_weights, log_file):
     )
     tuner = auto_scheduler.TaskScheduler(tasks, task_weights)
     tune_option = auto_scheduler.TuningOptions(
-        num_measure_trials=20000,
+        num_measure_trials=1500,
         runner=measure_runner,
         measure_callbacks=[auto_scheduler.RecordToFile(log_file)],
         verbose=2,
