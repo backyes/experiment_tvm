@@ -1,6 +1,7 @@
 import tf_utils
 import numpy as np
 import click
+import tensorflow as tf
 
 
 @click.command()

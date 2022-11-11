@@ -21,9 +21,9 @@ def mnist_dataset():
 train_dataset = mnist_dataset()
 model = tf.keras.Sequential((
     tf.keras.layers.Reshape(target_shape=(28 * 28,), input_shape=(28, 28)),
-    tf.keras.layers.Dense(100, activation='relu'),
-    tf.keras.layers.Dense(100, activation='relu'),
-    tf.keras.layers.Dense(10)))
+    tf.keras.layers.Dense(512, activation='relu'),
+    tf.keras.layers.Dense(512, activation='relu'),
+    tf.keras.layers.Dense(64)))
 model.build()
 optimizer = tf.keras.optimizers.Adam()
 compute_loss = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True)
@@ -42,6 +42,17 @@ def train_one_step(model, optimizer, x, y):
   compute_accuracy(y, logits)
   return loss
 
+def train_without_graph(model, optimizer):
+  train_ds = mnist_dataset()
+  step = 0
+  loss = 0.0
+  accuracy = 0.0
+  for x, y in train_ds:
+    step += 1
+    loss = train_one_step(model, optimizer, x, y)
+    if tf.equal(step % 10, 0):
+      tf.print('Step', step, ': loss', loss, '; accuracy', compute_accuracy.result())
+  return step, loss, accuracy
 
 @tf.function
 def train(model, optimizer):
@@ -56,7 +67,10 @@ def train(model, optimizer):
       tf.print('Step', step, ': loss', loss, '; accuracy', compute_accuracy.result())
   return step, loss, accuracy
 
+print("train_with_graph")
 step, loss, accuracy = train(model, optimizer)
+print("train_without_graph")
+step, loss, accuracy = train_without_graph(model, optimizer)
 print('Final step', step, ': loss', loss, '; accuracy', compute_accuracy.result())
 # Step 10 : loss 1.85892391 ; accuracy 0.37
 # ...
