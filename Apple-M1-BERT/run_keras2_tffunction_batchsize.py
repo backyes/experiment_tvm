@@ -14,8 +14,8 @@ def main(model_name, device):
         tf.device('/gpu:0')
     else:
         raise Exception("Unknown devices")    
-    batch_size = 1
-    seq_len = 128
+    batch_size = 2096
+    seq_len = 256
     model = tf_utils.get_huggingface_model(model_name,
                                            batch_size,
                                            seq_len)
