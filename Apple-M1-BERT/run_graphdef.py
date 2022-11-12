@@ -15,7 +15,7 @@ def main(graph_path, device):
         tf.device('/gpu:0')
     else:
         raise Exception("Unknown devices")    
-    batch_size = 1
+    batch_size = 128
     seq_len = 128
     if os.path.exists(graph_path) is False:
         raise Exception("Graph doesn't exist. Please dump tf graph first.")

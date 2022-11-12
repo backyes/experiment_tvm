@@ -2,14 +2,17 @@ import click
 import time
 import tensorflow as tf
 import numpy as np
+
+import progressbar
 import os
+
 from tensorflow.python.framework.convert_to_constants import (
     convert_variables_to_constants_v2,
 )
 
 def measure(func, args, repeats=50):
     res = []
-    for _ in range(repeats):
+    for i in progressbar.progressbar(range(repeats)):
         start = time.time()
         func(args)
         end = time.time()
