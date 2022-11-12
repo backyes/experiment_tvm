@@ -46,7 +46,10 @@ def main(model_name, save_prefix, convert_graph, graph_path, device):
         loaded = graph_def.ParseFromString(fi.read())
     g = tf.graph_util.import_graph_def(graph_def)
 
-    with tf.compat.v1.Session(graph=g) as sess:
+    config = tf.compat.v1.ConfigProto()
+    config.graph_options.optimizer_options.global_jit_level = tf.compat.v1.OptimizerOptions.ON_1
+    with tf.compat.v1.Session(graph=g, config=config) as sess:
+    #with tf.compat.v1.Session(graph=g) as sess:
         dummy_input = np.random.randint(0, 10000, size=[batch_size, seq_len]).astype(np.int32)
         x = tf.compat.v1.get_default_graph().get_tensor_by_name('x:0')
         fetches = ["tf_bert_for_sequence_classification/classifier/BiasAdd:0"]
