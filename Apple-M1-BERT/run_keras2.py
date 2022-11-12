@@ -5,7 +5,7 @@ import tensorflow as tf
 
 
 @click.command()
-@click.option("==model-name", default='bert-base-uncased')
+@click.option("--model-name", default='bert-base-uncased')
 @click.option('--device', required=True, help="device will be used, [cpu] or [gpu]")
 def main(model_name, device):
     if device == "cpu":
