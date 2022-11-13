@@ -27,10 +27,12 @@ def main(model_name, device):
         np_input = args[1]
         _ = model(np_input)
     
+    input = np.random.randint(0, 10000, size=[batch_size, seq_len]).astype(np.int32)
     run_args = [
         model,
-        np.random.randint(0, 10000, size=[batch_size, seq_len]).astype(np.int32)
+        input
     ]
+    print(input)
 
     mean, std = tf_utils.measure(run_keras, run_args)
     print("[Keras] Mean Inference time (std dev) on {device}: {mean_time} ms ({std} ms)".format(
