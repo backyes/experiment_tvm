@@ -44,8 +44,8 @@ def main(device):
     layer = tf.keras.layers.Dense(NUM_CLASSES)
     optimizer = tf.keras.optimizers.Adam()
 
-    @tf.function(jit_compile=True)
     #@tf.function
+    @tf.function(jit_compile=True)
     def train_mnist(images, labels):
         images, labels = cast(images, labels)
     
