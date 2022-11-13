@@ -6,7 +6,7 @@ from time import time
 import tensorflow as tf
 import tensorflow_datasets as tfds
 
-# https://www.tensorflow.org/xla/tutorials/jit_compile
+# https://www.tensorflow.org/xla/tutorials/autoclustering_xla
 # no high performance gains with xla
 
 def timing(f):

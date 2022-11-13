@@ -69,7 +69,7 @@ def main(device):
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
     print("Prediction accuracy after training: %s" % accuracy)
     
-    #print(train_mnist.experimental_get_compiler_ir(images, labels)(stage='hlo'))
+    print(train_mnist.experimental_get_compiler_ir(images, labels)(stage='hlo'))
 
 
 if __name__ == "__main__":
