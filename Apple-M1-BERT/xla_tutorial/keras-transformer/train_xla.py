@@ -7,6 +7,7 @@ import tensorflow as tf
 from dataset import get_dataset, prepare_dataset
 from model import get_model
 
+#tf.compat.v1.disable_eager_execution()
 
 def timing(f):
     @wraps(f)
@@ -73,7 +74,7 @@ def main(device):
       metrics = [
         "accuracy"
       ],
-      jit_compile=False
+      jit_compile=True
     )
     
     transformer_model.summary()
