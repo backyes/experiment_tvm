@@ -1,0 +1,31 @@
+name: Unit Testing
+on: [push]
+jobs:
+  unit-test:
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: [3.8, 3.9]
+        poetry-version: [1.1.12]
+        os: [ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: 🔔 Check out
+        uses: actions/checkout@v2
+
+      - name: 🏗️ python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: ⬇️ Python Poetry
+        uses: abatilo/actions-poetry@v2.0.0
+        with:
+          poetry-version: ${{ matrix.poetry-version }}
+      - name: ⬇️ Python Dependencies
+        run: poetry install
+      - name: ⬇️ pytest coverage
+        run: pip install pytest coverage
+      - name: 🏃 pytest
+        run: poetry run coverage run -m pytest -v
+      - name: 📊 coverage
+        run: coverage report -m
