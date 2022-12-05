@@ -16,3 +16,6 @@
 [submodule "triton"]
 	path = triton
 	url = https://github.com/openai/triton.git
+[submodule "dlrm"]
+	path = dlrm
+	url = https://github.com/facebookresearch/dlrm.git
