@@ -10,3 +10,6 @@
 [submodule "cutlass"]
 	path = cutlass
 	url = https://github.com/AITemplate/cutlass.git
+[submodule "composable_kernel"]
+	path = composable_kernel
+	url = https://github.com/ROCmSoftwarePlatform/composable_kernel.git
