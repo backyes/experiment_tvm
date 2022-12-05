@@ -4,3 +4,9 @@
 [submodule "AITemplate"]
 	path = AITemplate
 	url = https://github.com/facebookincubator/AITemplate.git
+[submodule "cub"]
+	path = cub
+	url = https://github.com/NVIDIA/cub.git
+[submodule "cutlass"]
+	path = cutlass
+	url = https://github.com/AITemplate/cutlass.git
