@@ -13,3 +13,6 @@
 [submodule "composable_kernel"]
 	path = composable_kernel
 	url = https://github.com/ROCmSoftwarePlatform/composable_kernel.git
+[submodule "triton"]
+	path = triton
+	url = https://github.com/openai/triton.git
