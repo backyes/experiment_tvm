@@ -28,3 +28,12 @@
 [submodule "FBGEMM"]
 	path = FBGEMM
 	url = https://github.com/pytorch/FBGEMM
+[submodule "Apple-M1-BERT.git"]
+	path = Apple-M1-BERT.git
+	url = https://github.com/octoml/Apple-M1-BERT
+[submodule "flash-attention-jax"]
+	path = flash-attention-jax
+	url = https://github.com/lucidrains/flash-attention-jax.git
+[submodule "fastmoe"]
+	path = fastmoe
+	url = https://github.com/laekov/fastmoe
