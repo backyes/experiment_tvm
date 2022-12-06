@@ -22,3 +22,9 @@
 [submodule "torchrec"]
 	path = torchrec
 	url = https://github.com/pytorch/torchrec.git
+[submodule "pytorch"]
+	path = pytorch
+	url = https://github.com/pytorch/pytorch.git
+[submodule "FBGEMM"]
+	path = FBGEMM
+	url = https://github.com/pytorch/FBGEMM
