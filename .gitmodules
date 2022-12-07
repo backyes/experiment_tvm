@@ -19,9 +19,6 @@
 [submodule "dlrm"]
 	path = dlrm
 	url = https://github.com/facebookresearch/dlrm.git
-[submodule "torchrec"]
-	path = torchrec
-	url = https://github.com/pytorch/torchrec.git
 [submodule "pytorch"]
 	path = pytorch
 	url = https://github.com/pytorch/pytorch.git
