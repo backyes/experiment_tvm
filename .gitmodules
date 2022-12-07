@@ -37,3 +37,15 @@
 [submodule "fastmoe"]
 	path = fastmoe
 	url = https://github.com/laekov/fastmoe
+[submodule "xformers"]
+	path = xformers
+	url = https://github.com/facebookresearch/xformers.git
+[submodule "diffusers"]
+	path = diffusers
+	url = https://github.com/huggingface/diffusers.git
+[submodule "fairseq"]
+	path = fairseq
+	url = https://github.com/facebookresearch/fairseq.git
+[submodule "accelerate"]
+	path = accelerate
+	url = https://github.com/huggingface/accelerate.git
