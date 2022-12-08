@@ -49,3 +49,9 @@
 [submodule "torchrec"]
 	path = torchrec
 	url = https://github.com/backyes/torchrec
+[submodule "DeepSpeed"]
+	path = DeepSpeed
+	url = https://github.com/backyes/DeepSpeed.git
+[submodule "fairscale"]
+	path = fairscale
+	url = https://github.com/backyes/fairscale.git
