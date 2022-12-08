@@ -48,7 +48,7 @@
 	url = https://github.com/huggingface/accelerate.git
 [submodule "torchrec"]
 	path = torchrec
-	url = https://github.com/backyes/torchrec
+	url = ssh://git@github.com:22/backyes/torchrec
 [submodule "DeepSpeed"]
 	path = DeepSpeed
 	url = https://github.com/backyes/DeepSpeed.git
