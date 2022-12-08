@@ -55,3 +55,6 @@
 [submodule "fairscale"]
 	path = fairscale
 	url = https://github.com/backyes/fairscale.git
+[submodule "lightning"]
+	path = lightning
+	url = https://github.com/backyes/lightning
