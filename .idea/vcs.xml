@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/AITemplate" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/AITemplate/3rdparty/composable_kernel" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/AITemplate/3rdparty/cub" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/AITemplate/3rdparty/cutlass" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Apple-M1-BERT.git" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/DeepSpeed" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/FBGEMM" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/accelerate" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/composable_kernel" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cub" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cutlass" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/diffusers" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/dlrm" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/fairscale" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/fairseq" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/fastmoe" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/flash-attention" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/flash-attention-jax" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/hsnet" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/lightning" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pytorch" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/stable-diffusion" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/stable-diffusion/src/clip" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/stable-diffusion/src/taming-transformers" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/torchrec.backyes" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/triton" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/xformers" vcs="Git" />
+  </component>
+</project>
