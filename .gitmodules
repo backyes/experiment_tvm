@@ -61,3 +61,6 @@
 [submodule "torchrec.backyes"]
 	path = torchrec.backyes
 	url = ssh://git@github.com:22/backyes/torchrec
+[submodule "tau"]
+	path = tau
+	url = https://github.com/pytorch/tau.git
