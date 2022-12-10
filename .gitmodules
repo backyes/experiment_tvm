@@ -64,3 +64,6 @@
 [submodule "tau"]
 	path = tau
 	url = https://github.com/pytorch/tau.git
+[submodule "tau.backyes"]
+	path = tau.backyes
+	url = https://github.com/pytorch/tau.git
