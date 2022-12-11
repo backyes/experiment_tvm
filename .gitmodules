@@ -69,4 +69,4 @@
 	url = https://github.com/pytorch/tau.git
 [submodule "torchdynamo"]
 	path = torchdynamo
-	url = https://github.com/backyes/torchdynamo.git
+	url = ssh://git@github.com:22/backyes/torchdynamo.git
