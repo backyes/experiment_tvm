@@ -76,3 +76,6 @@
 [submodule "nebullvm.backyes"]
 	path = nebullvm.backyes
 	url = ssh://git@github.com:22/backyes/nebullvm.git
+[submodule "transformer-deploy.backyes"]
+	path = transformer-deploy.backyes
+	url = ssh://git@github.com:22/backyes/transformer-deploy.git
