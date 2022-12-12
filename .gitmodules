@@ -73,3 +73,6 @@
 [submodule "xformer.backyes"]
 	path = xformer.backyes
 	url = ssh://git@github.com:22/backyes/xformers.git
+[submodule "nebullvm.backyes"]
+	path = nebullvm.backyes
+	url = ssh://git@github.com:22/backyes/nebullvm.git
