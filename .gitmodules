@@ -79,3 +79,6 @@
 [submodule "transformer-deploy.backyes"]
 	path = transformer-deploy.backyes
 	url = ssh://git@github.com:22/backyes/transformer-deploy.git
+[submodule "torchbench.backyes"]
+	path = torchbench.backyes
+	url = ssh://git@github.com:22/backyes/benchmark.git
