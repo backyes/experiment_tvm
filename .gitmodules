@@ -82,3 +82,6 @@
 [submodule "torchbench.backyes"]
 	path = torchbench.backyes
 	url = ssh://git@github.com:22/backyes/benchmark.git
+[submodule "PKU-DAIR_Hetu_Galvatron"]
+	path = PKU-DAIR_Hetu_Galvatron
+	url = ssh://git@github.com:22/backyes/Hetu.git
