@@ -85,3 +85,6 @@
 [submodule "PKU-DAIR_Hetu_Galvatron"]
 	path = PKU-DAIR_Hetu_Galvatron
 	url = ssh://git@github.com:22/backyes/Hetu.git
+[submodule "skypilot.backyes"]
+	path = skypilot.backyes
+	url = ssh://git@github.com:22/backyes/skypilot.git
