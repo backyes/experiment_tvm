@@ -94,3 +94,6 @@
 [submodule "jax.backyes"]
 	path = jax.backyes
 	url = ssh://git@github.com:22/backyes/jax.git
+[submodule "xformers.backyes"]
+	path = xformers.backyes
+	url = ssh://git@github.com:22/backyes/xformers.git
