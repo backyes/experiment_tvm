@@ -88,3 +88,6 @@
 [submodule "skypilot.backyes"]
 	path = skypilot.backyes
 	url = ssh://git@github.com:22/backyes/skypilot.git
+[submodule "functorch.backyes"]
+	path = functorch.backyes
+	url = ssh://git@github.com:22/backyes/functorch.git
