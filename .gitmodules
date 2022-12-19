@@ -97,3 +97,6 @@
 [submodule "xformers.backyes"]
 	path = xformers.backyes
 	url = ssh://git@github.com:22/backyes/xformers.git
+[submodule "triton.backyes"]
+	path = triton.backyes
+	url = ssh://git@github.com:22/backyes/triton.git
