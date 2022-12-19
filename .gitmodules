@@ -91,3 +91,6 @@
 [submodule "functorch.backyes"]
 	path = functorch.backyes
 	url = ssh://git@github.com:22/backyes/functorch.git
+[submodule "jax.backyes"]
+	path = jax.backyes
+	url = ssh://git@github.com:22/backyes/jax.git
