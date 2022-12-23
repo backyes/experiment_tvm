@@ -100,3 +100,9 @@
 [submodule "triton.backyes"]
 	path = triton.backyes
 	url = ssh://git@github.com:22/backyes/triton.git
+[submodule "alpa.backyes"]
+	path = alpa.backyes
+	url = ssh://git@github.com:22/backyes/alpa.git
+[submodule "lingvo.backyes"]
+	path = lingvo.backyes
+	url = ssh://git@github.com:22/backyes/lingvo.git
