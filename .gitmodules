@@ -106,3 +106,6 @@
 [submodule "lingvo.backyes"]
 	path = lingvo.backyes
 	url = ssh://git@github.com:22/backyes/lingvo.git
+[submodule "AITemplate.backyes"]
+	path = AITemplate.backyes
+	url = ssh://git@github.com:22/backyes/AITemplate.git
