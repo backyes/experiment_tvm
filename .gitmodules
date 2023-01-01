@@ -109,3 +109,9 @@
 [submodule "AITemplate.backyes"]
 	path = AITemplate.backyes
 	url = ssh://git@github.com:22/backyes/AITemplate.git
+[submodule "accel-sim-framework.backyes"]
+	path = accel-sim-framework.backyes
+	url = ssh://git@github.com:22/backyes/accel-sim-framework.git
+[submodule "gpgpu-sim_distribution.backyes"]
+	path = gpgpu-sim_distribution.backyes
+	url = ssh://git@github.com:22/backyes/gpgpu-sim_distribution.git
