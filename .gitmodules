@@ -115,3 +115,9 @@
 [submodule "gpgpu-sim_distribution.backyes"]
 	path = gpgpu-sim_distribution.backyes
 	url = ssh://git@github.com:22/backyes/gpgpu-sim_distribution.git
+[submodule "backyes/XiangShan"]
+	path = backyes/XiangShan
+	url = ssh://git@github.com:22/backyes/XiangShan.git
+[submodule "backyes/chisel3"]
+	path = backyes/chisel3
+	url = ssh://git@github.com:22/backyes/chisel3.git
