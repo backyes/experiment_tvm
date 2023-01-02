@@ -121,3 +121,9 @@
 [submodule "backyes/chisel3"]
 	path = backyes/chisel3
 	url = ssh://git@github.com:22/backyes/chisel3.git
+[submodule "backyes/pymtl"]
+	path = backyes/pymtl
+	url = ssh://git@github.com:22/backyes/pymtl.git
+[submodule "backyes/rocket-chip"]
+	path = backyes/rocket-chip
+	url = ssh://git@github.com:22/backyes/rocket-chip.git
