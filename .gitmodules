@@ -136,3 +136,6 @@
 [submodule "backyes/black-parrot"]
 	path = backyes/black-parrot
 	url = ssh://git@github.com:22/backyes/black-parrot.git
+[submodule "backyes/riscv-isa-sim"]
+	path = backyes/riscv-isa-sim
+	url = ssh://git@github.com:22/backyes/riscv-isa-sim.git
