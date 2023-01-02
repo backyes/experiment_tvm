@@ -127,3 +127,12 @@
 [submodule "backyes/rocket-chip"]
 	path = backyes/rocket-chip
 	url = ssh://git@github.com:22/backyes/rocket-chip.git
+[submodule "backyes/basejump_stl"]
+	path = backyes/basejump_stl
+	url = ssh://git@github.com:22/backyes/basejump_stl.git
+[submodule "backyes/bsg_manycore"]
+	path = backyes/bsg_manycore
+	url = ssh://git@github.com:22/backyes/bsg_manycore.git
+[submodule "backyes/black-parrot"]
+	path = backyes/black-parrot
+	url = ssh://git@github.com:22/backyes/black-parrot.git
