@@ -139,3 +139,12 @@
 [submodule "backyes/riscv-isa-sim"]
 	path = backyes/riscv-isa-sim
 	url = ssh://git@github.com:22/backyes/riscv-isa-sim.git
+[submodule "backyes/verilator"]
+	path = backyes/verilator
+	url = ssh://git@github.com:22/backyes/verilator.git
+[submodule "backyes/berkeley-hardfloat"]
+	path = backyes/berkeley-hardfloat
+	url = ssh://git@github.com:22/backyes/berkeley-hardfloat.git
+[submodule "backyes/nemu"]
+	path = backyes/nemu
+	url = ssh://git@github.com:22/backyes/nemu.git
