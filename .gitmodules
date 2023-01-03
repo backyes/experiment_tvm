@@ -157,3 +157,6 @@
 [submodule "backyes/ibex"]
 	path = backyes/ibex
 	url = ssh://git@github.com:22/backyes/ibex.git
+[submodule "backyes/circt"]
+	path = backyes/circt
+	url = ssh://git@github.com:22/backyes/circt.git
