@@ -148,3 +148,6 @@
 [submodule "backyes/nemu"]
 	path = backyes/nemu
 	url = ssh://git@github.com:22/backyes/nemu.git
+[submodule "backyes/nemu-1"]
+	path = backyes/nemu-1
+	url = ssh://git@github.com:22/backyes/nemu-1.git
