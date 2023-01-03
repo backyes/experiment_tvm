@@ -154,3 +154,6 @@
 [submodule "backyes/xs-env"]
 	path = backyes/xs-env
 	url = ssh://git@github.com:22/backyes/xs-env.git
+[submodule "backyes/ibex"]
+	path = backyes/ibex
+	url = ssh://git@github.com:22/backyes/ibex.git
