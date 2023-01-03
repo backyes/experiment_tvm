@@ -151,3 +151,6 @@
 [submodule "backyes/nemu-1"]
 	path = backyes/nemu-1
 	url = ssh://git@github.com:22/backyes/nemu-1.git
+[submodule "backyes/xs-env"]
+	path = backyes/xs-env
+	url = ssh://git@github.com:22/backyes/xs-env.git
