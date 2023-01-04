@@ -160,3 +160,6 @@
 [submodule "backyes/circt"]
 	path = backyes/circt
 	url = ssh://git@github.com:22/backyes/circt.git
+[submodule "backyes/constellation"]
+	path = backyes/constellation
+	url = ssh://git@github.com:22/backyes/constellation.git
