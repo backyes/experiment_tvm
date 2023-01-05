@@ -166,3 +166,9 @@
 [submodule "backyes/chisel-circt"]
 	path = backyes/chisel-circt
 	url = ssh://git@github.com:22/backyes/chisel-circt.git
+[submodule "backyes/firrtl"]
+	path = backyes/firrtl
+	url = ssh://git@github.com:22/backyes/firrtl.git
+[submodule "backyes/heterocl"]
+	path = backyes/heterocl
+	url = ssh://git@github.com:22/backyes/heterocl.git
