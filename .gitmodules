@@ -172,3 +172,6 @@
 [submodule "backyes/heterocl"]
 	path = backyes/heterocl
 	url = ssh://git@github.com:22/backyes/heterocl.git
+[submodule "backyes/pluto"]
+	path = backyes/pluto
+	url = ssh://git@github.com:22/backyes/pluto.git
