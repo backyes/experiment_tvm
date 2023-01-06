@@ -175,3 +175,6 @@
 [submodule "backyes/pluto"]
 	path = backyes/pluto
 	url = ssh://git@github.com:22/backyes/pluto.git
+[submodule "backyes/chisel-template"]
+	path = backyes/chisel-template
+	url = ssh://git@github.com:22/backyes/chisel-template.git
