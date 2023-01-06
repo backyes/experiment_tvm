@@ -178,3 +178,6 @@
 [submodule "backyes/chisel-template"]
 	path = backyes/chisel-template
 	url = ssh://git@github.com:22/backyes/chisel-template.git
+[submodule "backyes/clisel-bootcamp"]
+	path = backyes/clisel-bootcamp
+	url = ssh://git@github.com:22/backyes/chisel-bootcamp.git
