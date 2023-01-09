@@ -181,3 +181,6 @@
 [submodule "backyes/clisel-bootcamp"]
 	path = backyes/clisel-bootcamp
 	url = ssh://git@github.com:22/backyes/chisel-bootcamp.git
+[submodule "backyes/cub"]
+	path = backyes/cub
+	url = ssh://git@github.com:22/backyes/cub.git
