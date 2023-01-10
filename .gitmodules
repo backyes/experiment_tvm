@@ -184,3 +184,6 @@
 [submodule "backyes/cub"]
 	path = backyes/cub
 	url = ssh://git@github.com:22/backyes/cub.git
+[submodule "backyes/HIP"]
+	path = backyes/HIP
+	url = ssh://git@github.com:22/backyes/HIP.git
